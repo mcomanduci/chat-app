@@ -8,7 +8,7 @@ const Form: React.FC<FormProps> = ({
   setHistory,
 }) => {
   if (!question) return null;
-  
+
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
@@ -31,7 +31,7 @@ const Form: React.FC<FormProps> = ({
 
   return (
     <form onSubmit={handleFormSubmit} className="flex flex-col">
-      <div className="flex gap-2">
+      <div className="grid grid-cols-[auto_auto] gap-2">
         <div className="h-10 w-10 bg-slate-100 rounded-full"></div>
         <label className="bg-[#1E293B] px-4 py-2 rounded-md shadow text-left self-start block mb-4">
           {typeof question.question === "function"
