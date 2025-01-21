@@ -1,8 +1,7 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import History from "./components/History";
 import Form from "./components/Form";
-import Intro from "./components/Intro";
 
 interface Question {
   question: string | ((prevAnswer: string) => string);
@@ -55,23 +54,11 @@ export default function ChatbotForm(): JSX.Element {
     setCurrentIndex((prev) => prev + 1);
   };
 
-  useEffect(() => {
-    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-  }, [history]);
-
   return (
-    <>
-      <div className="h-1 w-full bg-[#474C58] fixed top-0 z-50">
-        <div
-          className="h-1 bg-[#0042DA] transition-width duration-300"
-          style={{ width: `${(currentIndex / questions.length) * 100}%` }}
-        ></div>
-      </div>
-      {/* <div className="relative min-h-screen bg-teste bg-cover bg-center pt-10"> */}
-      <div className="relative h-full w-full max-w-[800px] pt-9 mx-auto px-5 pb-[10%]">
-        {/* <div className="absolute inset-0 bg-black opacity-50"></div> */}
-        {/* <div className="relative max-w-xl mx-auto p-4 bg-[#171923] rounded shadow"> */}
-        <Intro />
+    <div className="relative min-h-screen bg-teste bg-cover bg-center pt-10">
+      <div className="absolute inset-0 bg-black opacity-50"></div>
+      <div className="relative max-w-md mx-auto p-4 bg-black/50 rounded shadow">
+        <h1 className="text-xl font-bold mb-4">Chatbot Form</h1>
         <History history={history} />
 
         {currentIndex < questions.length ? (
@@ -86,17 +73,12 @@ export default function ChatbotForm(): JSX.Element {
           />
         ) : (
           <div>
-            <div className="flex gap-4 mt-2">
-              <div className="h-8 w-8 bg-slate-100 rounded-full"></div>
-              <div className="bg-[#1E293B] px-4 py-2 rounded-md shadow text-left self-start">
-                <p className="">
-                  Obrigado por responder as perguntas, em breve retornaremos o
-                  contato!
-                </p>
-              </div>
-            </div>
+            <p className="mt-4 text-white">
+              Obrigado por responder as perguntas, em breve retornaremos o
+              contato!
+            </p>
 
-            <div className="relative bg-white text-black mt-6 p-4 rounded-md">
+            <div className="relative bg-white text-black mt-6">
               <h2 className="text-lg font-bold">
                 Respostas: (desenvolvimento / Serão enviadas ao email do
                 cliente)
@@ -111,9 +93,7 @@ export default function ChatbotForm(): JSX.Element {
             </div>
           </div>
         )}
-        {/* <div className="h-1/5 w-full"></div> */}
-        {/* </div> */}
       </div>
-    </>
+    </div>
   );
 }
