@@ -76,9 +76,9 @@ export default function ChatbotForm() {
           />
         ) : (
           <div>
-            <div className="grid grid-cols-[auto_auto] gap-4 mt-2">
-              <div className="h-8 w-8 bg-slate-100 rounded-full"></div>
-              <div className="bg-[#1E293B] px-4 py-2 rounded-md shadow text-left self-start">
+            <div className="grid grid-cols-[auto_1fr] gap-2 mt-2">
+              <div className="h-10 w-10 bg-slate-300 rounded-full"></div>
+              <div className="bg-[#1E293B] px-4 py-2 rounded-md shadow text-left justify-self-start">
                 <p className="">
                   Obrigado por responder as perguntas, em breve retornaremos o
                   contato!
