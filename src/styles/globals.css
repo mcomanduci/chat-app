@@ -22,6 +22,10 @@ body {
   height: 100vh;
 }
 
+__next {
+  height: 100%;
+}
+
 * {
   -ms-overflow-style: none;
   scrollbar-width: none;
