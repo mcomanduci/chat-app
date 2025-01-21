@@ -1,24 +1,14 @@
 import React from "react";
-
-interface Question {
-  question: string | ((prevAnswer: string) => string);
-  type: "text" | "email" | "tel" | "choose";
-  placeholder?: string;
-}
-
-interface FormProps {
-  question: Question;
-  onSubmit: (answer: string) => void;
-  setCurrentIndex: React.Dispatch<React.SetStateAction<number>>;
-  setHistory: React.Dispatch<React.SetStateAction<HistoryEntry[]>>;
-}
+import { type FormProps } from "../types";
 
 const Form: React.FC<FormProps> = ({
   question,
   onSubmit,
   setCurrentIndex,
   setHistory,
-}): JSX.Element => {
+}) => {
+  if (!question) return null;
+  
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
@@ -44,7 +34,9 @@ const Form: React.FC<FormProps> = ({
       <div className="flex gap-2">
         <div className="h-10 w-10 bg-slate-100 rounded-full"></div>
         <label className="bg-[#1E293B] px-4 py-2 rounded-md shadow text-left self-start block mb-4">
-          {question.question}
+          {typeof question.question === "function"
+            ? question.question("")
+            : question.question}
         </label>
       </div>
       <div className="justify-end flex gap-2 w-full">

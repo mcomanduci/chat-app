@@ -1,19 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
-import History from "./components/History";
-import Form from "./components/Form";
-import Intro from "./components/Intro";
-
-interface Question {
-  question: string | ((prevAnswer: string) => string);
-  type: "text" | "email" | "tel" | "choose";
-  placeholder?: string;
-}
-
-interface HistoryEntry {
-  question: string;
-  answer: string;
-}
+import History from "../components/History";
+import Form from "../components/Form";
+import Intro from "../components/Intro";
+import { HistoryEntry, Question } from "../types";
 
 const questions: Question[] = [
   {
@@ -37,7 +27,7 @@ const questions: Question[] = [
   },
 ];
 
-export default function ChatbotForm(): JSX.Element {
+export default function ChatbotForm() {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [history, setHistory] = useState<HistoryEntry[]>([]);
 
@@ -96,7 +86,7 @@ export default function ChatbotForm(): JSX.Element {
               </div>
             </div>
 
-            <div className="relative bg-white text-black mt-6 p-4 rounded-md">
+            <div className="relative bg-white text-black mt-6 p-4">
               <h2 className="text-lg font-bold">
                 Respostas: (desenvolvimento / Serão enviadas ao email do
                 cliente)
