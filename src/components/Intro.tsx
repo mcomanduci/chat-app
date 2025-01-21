@@ -10,7 +10,7 @@ const Intro = () => {
         <div className="flex flex-col gap-2">
           <div className="bg-[#1E293B] p-4 rounded-md shadow text-left self-start">
             <Image
-              className="rounded-md max-w-[680px] max-h-[200px] object-cover"
+              className="rounded-md lg:max-w-[680px] max-h-[200px] object-cover"
               src="/doctor.jpg"
               alt="Doctor"
               width={680}
