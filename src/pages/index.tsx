@@ -4,6 +4,7 @@ import History from "../components/History";
 import Form from "../components/Form";
 import Intro from "../components/Intro";
 import { HistoryEntry, Question } from "../types";
+import Picture from "@/components/Picture";
 
 const questions: Question[] = [
   {
@@ -58,7 +59,7 @@ export default function ChatbotForm() {
         ></div>
       </div>
       {/* <div className="relative min-h-screen bg-teste bg-cover bg-center pt-10"> */}
-      <div className="relative h-full w-full max-w-[800px] pt-9 mx-auto px-5 pb-[10%]">
+      <div className="relative h-full w-full max-w-[800px] pt-5 mob:pt-10 mx-auto px-3 mob:px-5 pb-[10%]">
         {/* <div className="absolute inset-0 bg-black opacity-50"></div> */}
         {/* <div className="relative max-w-xl mx-auto p-4 bg-[#171923] rounded shadow"> */}
         <Intro />
@@ -76,8 +77,8 @@ export default function ChatbotForm() {
           />
         ) : (
           <div>
-            <div className="grid grid-cols-[auto_1fr] gap-2 mt-2">
-              <div className="h-10 w-10 bg-slate-300 rounded-full"></div>
+            <div className="grid grid-cols-[auto_1fr] gap-1 mob:gap-2 mt-2">
+              <Picture />
               <div className="bg-[#1E293B] px-4 py-2 rounded-md shadow text-left justify-self-start">
                 <p className="">
                   Obrigado por responder as perguntas, em breve retornaremos o

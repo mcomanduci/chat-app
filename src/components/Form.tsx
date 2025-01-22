@@ -1,5 +1,6 @@
 import React from "react";
 import { type FormProps } from "../types";
+import Picture from "./Picture";
 
 const Form: React.FC<FormProps> = ({
   question,
@@ -31,9 +32,9 @@ const Form: React.FC<FormProps> = ({
 
   return (
     <form onSubmit={handleFormSubmit} className="flex flex-col">
-      <div className="grid grid-cols-[auto_1fr] gap-2">
-        <div className="h-10 w-10 bg-slate-300 rounded-full"></div>
-        <label className="bg-[#1E293B] px-4 py-2 rounded-md shadow text-left justify-self-start block mb-4">
+      <div className="grid grid-cols-[auto_1fr] gap-1 mob:gap-2 mb-2">
+        <Picture />
+        <label className="bg-[#1E293B] px-4 py-2 rounded-md shadow text-left justify-self-start block">
           {typeof question.question === "function"
             ? question.question("")
             : question.question}
@@ -64,7 +65,7 @@ const Form: React.FC<FormProps> = ({
                 type={question.type}
                 autoComplete="off"
                 name="answer"
-                className="w-full p-4 border-none rounded-md bg-[#1E293B] text-white placeholder:font-thin placeholder:text-sm focus:outline-none"
+                className="w-full p-4 border-none rounded-md bg-[#1E293B] text-white placeholder:text-[#9095A0] placeholder:font-thin focus:outline-none"
                 placeholder={question.placeholder}
               />
               <button
